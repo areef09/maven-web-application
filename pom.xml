@@ -21,8 +21,8 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://15.206.80.53:9000/</sonar.host.url>
-                <sonar.login>squ_91a0a8f99297a91ab866c7478d1d81b76e03d026</sonar.login>
+		<sonar.host.url>http://65.2.39.190:9000/</sonar.host.url>
+                <sonar.login>squ_661cdcfa0cb5f2d5206cbea62c6c5742e447fdbd</sonar.login>
 		
              
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -99,13 +99,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Areef Releases Nexus Repository</name>
-	      <url>http://http://15.206.80.53:8081/repository/wallmart-release/</url>
+	      <url>http://15.206.80.53:8081/repository/wallmart-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Areef Snapshot Nexus Repository </name>
-	      <url>http://http://15.206.80.53:8081/repository/wallmart-snapshot/</url>
+	      <url>http://15.206.80.53:8081/repository/wallmart-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
