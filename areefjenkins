@@ -1,0 +1,41 @@
+pipeline{
+agent any
+tools{
+maven 'maven3.8.1'
+}
+triggers{
+pipelineTriggers([pollSCM(ignorePostCommitHooks: true, scmpoll_spec: '* * * * *')])
+}
+options{
+buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
+
+timestamps()
+}
+	stages{
+		stage('download'){
+			steps{
+			git branch: 'development', url: 'https://github.com/areef09/maven-web-application.git'
+			}
+			}
+		stage('build'){
+			steps{
+			sh "mvn clean package"
+			}
+			}
+		stage('test'){
+			steps{
+			sh "mvn sonar:sonar"
+			}
+			}
+		stage('deployment'){
+			steps{
+			sh "mvn deploy"
+			}
+			}
+		stage('delivery'){
+		steps{
+			deploy adapters: [tomcat9(credentialsId: 'eedd9651-a0a4-46a7-b39a-7016d4485a87', path: '', url: 'http://13.233.114.30:8080')], contextPath: null, war: '**/*.war'
+			}
+			}
+		}
+	}
