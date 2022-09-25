@@ -4,7 +4,7 @@ tools{
 maven 'maven3.8.1'
 }
 triggers{
-pipelineTriggers([pollSCM(ignorePostCommitHooks: true, scmpoll_spec: '* * * * *')])
+pollSCM(ignorePostCommitHooks: true, scmpoll_spec: '* * * * *')
 }
 options{
 buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
